@@ -22,27 +22,39 @@
         input[type="text"],input[type="password"]{padding-left:26px;}
         .checkbox{padding-left:21px;}
     </style>
+    <script>
+        $(function(){
+            $("#register_btn").click(function(){
+                $("#login_form").hide();
+                $("#register_form").show();
+            })
+            $("#back_btn").click(function(){
+                $("#register_form").hide();
+                $("#login_form").show();
+            })
+        })
+    </script>
 </head>
 <body>
 <div class="container">
     <div class="form row" id="login_form">
-        <form class="form-horizontal col-sm-offset-3 col-md-offset-3">
+        <form class="form-horizontal col-sm-offset-3 col-md-offset-3" action="${pageContext.request.contextPath}/all/login">
             <h3 class="form-title">Login to your account</h3>
             <div class="col-sm-9 col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
-                    <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus" maxlength="20"/>
+                    <input class="form-control required" type="text" placeholder="Username" name="username_login" autofocus="autofocus" maxlength="20"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-lock fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="Password" name="password" maxlength="8"/>
+                    <input class="form-control required" type="password" placeholder="Password" name="password_login" maxlength="8"/>
                 </div>
                 <div class="form-group">
                     <label class="checkbox">
                         <input type="checkbox" name="remember" value="1"/> Remember me
                     </label>
                     <hr />
-                    <a href="javascript:;" id="register_btn" class="">Create an account</a>
+                    <a href="javascript:void(0)" id="register_btn" class="">Create an account</a>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success pull-right" value="Login "/>
@@ -57,11 +69,11 @@
             <div class="col-sm-9 col-md-9">
                 <div class="form-group">
                     <i class="fa fa-user fa-lg"></i>
-                    <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus"/>
+                    <input class="form-control required" type="text" placeholder="Username" name="username_regist" autofocus="autofocus"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-lock fa-lg"></i>
-                    <input class="form-control required" type="password" placeholder="Password" id="register_password" name="password"/>
+                    <input class="form-control required" type="password" placeholder="Password" id="password_regist" name="password"/>
                 </div>
                 <div class="form-group">
                     <i class="fa fa-check fa-lg"></i>
@@ -73,7 +85,7 @@
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success pull-right" value="Sign Up "/>
-                    <input type="submit" class="btn btn-info pull-left" id="back_btn" value="Back"/>
+                    <input type="button" class="btn btn-info pull-left" id="back_btn" value="Back"/>
                 </div>
             </div>
         </form>
